@@ -1,4 +1,4 @@
-name: Acromere Aveno CI
+name: Aveon CI
 
 on:
   push:
