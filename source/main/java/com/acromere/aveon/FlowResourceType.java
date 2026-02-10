@@ -1,0 +1,47 @@
+package com.acromere.aveon;
+
+import com.acromere.xenon.Xenon;
+import com.acromere.xenon.XenonProgramProduct;
+import com.acromere.xenon.resource.Resource;
+import com.acromere.xenon.resource.ResourceType;
+import javafx.scene.control.TextInputDialog;
+import lombok.CustomLog;
+
+@CustomLog
+public class FlowResourceType extends ResourceType {
+
+	public FlowResourceType( XenonProgramProduct product ) {
+		super( product, "flow2d" );
+		setDefaultCodec( new FlowCodec() );
+	}
+
+	@Override
+	public String getKey() {
+		return getDefaultCodec().getKey();
+	}
+
+	@Override
+	public boolean assetOpen( Xenon program, Resource resource ) {
+		Flow2D flow = new Flow2D();
+		resource.setModel( flow );
+		return true;
+	}
+
+	@Override
+	public boolean assetNew( Xenon program, Resource resource ) {
+		String url = requestAirfoilData( "http://airfoiltools.com/airfoil/lednicerdatfile?airfoil=e376-il" );
+		program.getSettingsManager().getAssetSettings( resource ).set( FlowTool.AIRFOIL_URL, url );
+		return true;
+	}
+
+	private String requestAirfoilData( String url ) {
+		TextInputDialog dialog = new TextInputDialog( url );
+		dialog.initOwner( getProgram().getWorkspaceManager().getActiveStage() );
+		dialog.setGraphic( getProgram().getIconLibrary().getIcon( "flow" ) );
+		dialog.setTitle( "Airfoil" );
+		dialog.setHeaderText( "Choose an airfoil..." );
+		dialog.setContentText( "URL:" );
+		return dialog.showAndWait().orElse( "" );
+	}
+
+}

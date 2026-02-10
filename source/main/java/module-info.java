@@ -1,25 +1,26 @@
-import com.avereon.xenon.Module;
+import com.acromere.aveon.Aveon;
+import com.acromere.xenon.Module;
 
-module com.avereon.aveon {
+module com.acromere.aveon {
 
 	// Compile-time only
 	requires static lombok;
 
 	// Both compile-time and run-time
-	requires com.avereon.curve;
-	requires com.avereon.marea;
-	requires com.avereon.xenon;
-	requires com.avereon.zenna;
-	requires com.avereon.zerra;
-	requires com.avereon.zevra;
+	requires com.acromere.curve;
+	requires com.acromere.marea;
+	requires com.acromere.xenon;
+	requires com.acromere.zenna;
+	requires com.acromere.zerra;
+	requires com.acromere.zevra;
 	requires javafx.controls;
 	requires javafx.graphics;
 
-	opens com.avereon.aveon.bundles;
+	opens com.acromere.aveon.bundles;
 
-	exports com.avereon.aveon to com.avereon.xenon, com.avereon.zerra;
-	exports com.avereon.geometry;
+	exports com.acromere.aveon to com.acromere.xenon, com.acromere.zerra;
+	exports com.acromere.geometry;
 
-	provides Module with com.avereon.aveon.Aveon;
+	provides Module with Aveon;
 
 }
