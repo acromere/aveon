@@ -30,7 +30,7 @@ public class FlowResourceType extends ResourceType {
 	@Override
 	public boolean assetNew( Xenon program, Resource resource ) {
 		String url = requestAirfoilData( "http://airfoiltools.com/airfoil/lednicerdatfile?airfoil=e376-il" );
-		program.getSettingsManager().getAssetSettings( resource ).set( FlowTool.AIRFOIL_URL, url );
+		program.getSettingsManager().getResourceSettings( resource ).set( FlowTool.AIRFOIL_URL, url );
 		return true;
 	}
 
