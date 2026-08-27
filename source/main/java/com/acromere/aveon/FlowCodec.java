@@ -26,7 +26,7 @@ public class FlowCodec extends Codec {
 
 	@Override
 	public String getName() {
-		return Rb.text( "asset", "codec-flow-name" );
+		return Rb.text( "resource", "codec-flow-name" );
 	}
 
 	@Override

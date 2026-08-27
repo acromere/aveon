@@ -40,7 +40,7 @@ public class AirfoilTool extends ProgramTool implements RunPauseResettable {
 	public AirfoilTool( XenonProgramProduct product, Resource resource ) {
 		super( product, resource );
 		setGraphic( getProgram().getIconLibrary().getIcon( "airfoil" ) );
-		setTitle( Rb.textOr( getProduct(), "asset", "airfoil2d-name", "Flow" ) );
+		setTitle( Rb.textOr( getProduct(), "resource", "airfoil2d-name", "Flow" ) );
 
 		Screen screen = Screen.getPrimary();
 		double dpi = screen.getDpi();
@@ -82,7 +82,7 @@ public class AirfoilTool extends ProgramTool implements RunPauseResettable {
 
 		this.solver = new AirfoilPathSolver( getAirfoil() );
 
-		// Register airfoil (asset model) event handlers...
+		// Register airfoil (resource model) event handlers...
 		//getAirfoil().register( Flow2D.AIRFOIL, ( e ) -> this.solver.reset() );
 	}
 

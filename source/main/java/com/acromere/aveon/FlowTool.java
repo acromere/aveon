@@ -76,19 +76,19 @@ public class FlowTool extends ProgramTool implements RunPauseResettable {
 	@Override
 	protected void ready( OpenResourceRequest request ) {
 		setGraphic( getProgram().getIconLibrary().getIcon( "flow" ) );
-		setTitle( Rb.textOr( getProduct(), "asset", "flow2d-name", "Flow" ) );
+		setTitle( Rb.textOr( getProduct(), "resource", "flow2d-name", "Flow" ) );
 	}
 
 	@Override
 	protected void open( OpenResourceRequest request ) {
-		// Load the initial state from the flow (asset model)
+		// Load the initial state from the flow (resource model)
 		if( getFlow().getAirfoil() == null || !getFlow().getAirfoil().isAnalyzed() ) {
-			String airfoilUrl = getAssetSettings().get( "airfoil-url" );
+			String airfoilUrl = getResourceSettings().get( "airfoil-url" );
 			if( airfoilUrl == null ) airfoilUrl = getSettings().get( AIRFOIL_URL );
 			loadAirfoilPoints( airfoilUrl );
 		}
 
-		// Register flow (asset model) event handlers...
+		// Register flow (resource model) event handlers...
 		getFlow().register( Flow2D.AIRFOIL, ( e ) -> getFlow().reset() );
 		//flow.register( Flow2D.PRESSURE_FIELD, ( e ) -> redrawPressureField() );
 		//flow.register( Flow2D.VELOCITY_FIELD, ( e ) -> redrawVelocityField() );
