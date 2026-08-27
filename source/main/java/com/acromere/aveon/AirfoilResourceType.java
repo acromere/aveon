@@ -26,14 +26,14 @@ public class AirfoilResourceType extends ResourceType {
 	}
 
 	@Override
-	public boolean assetOpen( Xenon program, Resource resource ) throws ResourceException {
+	public boolean resourceOpen( Xenon program, Resource resource ) throws ResourceException {
 		Airfoil airfoil = new Airfoil();
 		resource.setModel( airfoil );
 		return true;
 	}
 
 	@Override
-	public boolean assetNew( Xenon program, Resource resource ) throws ResourceException {
+	public boolean resourceNew( Xenon program, Resource resource ) throws ResourceException {
 		try {
 			String url = requestAirfoilData( "http://airfoiltools.com/airfoil/lednicerdatfile?airfoil=e376-il" );
 			if( TextUtil.isEmpty( url ) ) return false;

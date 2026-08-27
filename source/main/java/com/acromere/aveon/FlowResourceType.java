@@ -21,14 +21,14 @@ public class FlowResourceType extends ResourceType {
 	}
 
 	@Override
-	public boolean assetOpen( Xenon program, Resource resource ) {
+	public boolean resourceOpen( Xenon program, Resource resource ) {
 		Flow2D flow = new Flow2D();
 		resource.setModel( flow );
 		return true;
 	}
 
 	@Override
-	public boolean assetNew( Xenon program, Resource resource ) {
+	public boolean resourceNew( Xenon program, Resource resource ) {
 		String url = requestAirfoilData( "http://airfoiltools.com/airfoil/lednicerdatfile?airfoil=e376-il" );
 		program.getSettingsManager().getResourceSettings( resource ).set( FlowTool.AIRFOIL_URL, url );
 		return true;
