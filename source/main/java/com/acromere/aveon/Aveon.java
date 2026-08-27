@@ -7,13 +7,13 @@ import lombok.CustomLog;
 @CustomLog
 public class Aveon extends Module {
 
-	private final AirfoilResourceType airfoilAssetType;
+	private final AirfoilResourceType airfoilResourceType;
 
-	private final FlowResourceType flowAssetType;
+	private final FlowResourceType flowResourceType;
 
 	public Aveon() {
-		airfoilAssetType = new AirfoilResourceType( this );
-		flowAssetType = new FlowResourceType( this );
+		airfoilResourceType = new AirfoilResourceType( this );
+		flowResourceType = new FlowResourceType( this );
 	}
 
 	@Override
@@ -30,20 +30,20 @@ public class Aveon extends Module {
 //		registerAction( this, "toggle-velocity-field" );
 //		registerAction( this, "toggle-stream-field" );
 
-		registerAssetType( airfoilAssetType );
-		registerTool( airfoilAssetType, new ToolRegistration( this, AirfoilTool.class ) );
+		registerResourceType( airfoilResourceType );
+		registerTool( airfoilResourceType, new ToolRegistration( this, AirfoilTool.class ) );
 
-		registerAssetType( flowAssetType );
-		registerTool( flowAssetType, new ToolRegistration( this, FlowTool.class ) );
+		registerResourceType( flowResourceType );
+		registerTool( flowResourceType, new ToolRegistration( this, FlowTool.class ) );
 	}
 
 	@Override
 	public void shutdown() {
-		unregisterTool( flowAssetType, FlowTool.class );
-		unregisterAssetType( flowAssetType );
+		unregisterTool( flowResourceType, FlowTool.class );
+		unregisterResourceType( flowResourceType );
 
-		unregisterTool( airfoilAssetType, AirfoilTool.class );
-		unregisterAssetType( airfoilAssetType );
+		unregisterTool( airfoilResourceType, AirfoilTool.class );
+		unregisterResourceType( airfoilResourceType );
 
 //		unregisterAction( "toggle-stream-field" );
 //		unregisterAction( "toggle-velocity-field" );

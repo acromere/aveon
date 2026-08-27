@@ -135,7 +135,7 @@ public class FlowTool extends ProgramTool implements RunPauseResettable {
 	}
 
 	private Flow2D getFlow() {
-		return (Flow2D)getAssetModel();
+		return (Flow2D)getResourceModel();
 	}
 
 	private void scaleAndTranslate( Parent parent ) {

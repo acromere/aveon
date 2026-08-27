@@ -71,7 +71,7 @@ public class AirfoilTool extends ProgramTool implements RunPauseResettable {
 	}
 
 	public Airfoil getAirfoil() {
-		return getAssetModel();
+		return getResourceModel();
 	}
 
 	@Override
@@ -95,7 +95,7 @@ public class AirfoilTool extends ProgramTool implements RunPauseResettable {
 		this.renderer.clear();
 		if( !getResource().isLoaded() ) return;
 
-		Airfoil airfoil = getAssetModel();
+		Airfoil airfoil = getResourceModel();
 
 		// Airfoil chord
 		renderer.draw( new Line( 0, 0, 1, 0 ), new Pen( Color.GREEN, 0.001 ) );
