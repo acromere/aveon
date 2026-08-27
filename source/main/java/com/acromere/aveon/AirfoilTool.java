@@ -16,7 +16,7 @@ import com.acromere.xenon.XenonProgramProduct;
 import com.acromere.xenon.action.common.ResetAction;
 import com.acromere.xenon.action.common.RunPauseAction;
 import com.acromere.xenon.resource.Resource;
-import com.acromere.xenon.resource.OpenAssetRequest;
+import com.acromere.xenon.resource.OpenResourceRequest;
 import com.acromere.xenon.task.Task;
 import com.acromere.xenon.task.TaskEvent;
 import com.acromere.xenon.workpane.ToolException;
@@ -75,7 +75,7 @@ public class AirfoilTool extends ProgramTool implements RunPauseResettable {
 	}
 
 	@Override
-	protected void ready( OpenAssetRequest request ) throws ToolException {
+	protected void ready( OpenResourceRequest request ) throws ToolException {
 		super.ready( request );
 		setGraphic( getProgram().getIconLibrary().getIcon( "airfoil" ) );
 		setTitle( request.getResource().getName() );
@@ -87,7 +87,7 @@ public class AirfoilTool extends ProgramTool implements RunPauseResettable {
 	}
 
 	@Override
-	protected void open( OpenAssetRequest request ) {
+	protected void open( OpenResourceRequest request ) {
 		render();
 	}
 

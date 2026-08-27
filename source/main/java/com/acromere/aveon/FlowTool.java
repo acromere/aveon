@@ -10,7 +10,7 @@ import com.acromere.xenon.XenonProgramProduct;
 import com.acromere.xenon.action.common.ResetAction;
 import com.acromere.xenon.action.common.RunPauseAction;
 import com.acromere.xenon.resource.Resource;
-import com.acromere.xenon.resource.OpenAssetRequest;
+import com.acromere.xenon.resource.OpenResourceRequest;
 import com.acromere.xenon.task.Task;
 import com.acromere.xenon.task.TaskEvent;
 import javafx.application.Platform;
@@ -74,13 +74,13 @@ public class FlowTool extends ProgramTool implements RunPauseResettable {
 	}
 
 	@Override
-	protected void ready( OpenAssetRequest request ) {
+	protected void ready( OpenResourceRequest request ) {
 		setGraphic( getProgram().getIconLibrary().getIcon( "flow" ) );
 		setTitle( Rb.textOr( getProduct(), "asset", "flow2d-name", "Flow" ) );
 	}
 
 	@Override
-	protected void open( OpenAssetRequest request ) {
+	protected void open( OpenResourceRequest request ) {
 		// Load the initial state from the flow (asset model)
 		if( getFlow().getAirfoil() == null || !getFlow().getAirfoil().isAnalyzed() ) {
 			String airfoilUrl = getAssetSettings().get( "airfoil-url" );
