@@ -1,9 +1,9 @@
 package com.acromere.aveon;
 
-import com.acromere.data.Node;
+import com.acromere.data.DataNode;
 import com.acromere.skill.Resettable;
 
-public class Flow2D extends Node implements Resettable {
+public class Flow2D extends DataNode implements Resettable {
 
 	static final String SOLVER = "solver";
 

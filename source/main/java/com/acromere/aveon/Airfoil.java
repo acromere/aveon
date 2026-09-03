@@ -1,7 +1,7 @@
 package com.acromere.aveon;
 
 import com.acromere.curve.math.*;
-import com.acromere.data.Node;
+import com.acromere.data.DataNode;
 import com.acromere.geometry.Cubic2D;
 import com.acromere.geometry.Point2D;
 import lombok.CustomLog;
@@ -21,7 +21,7 @@ import java.util.function.BiFunction;
  * </ul>
  */
 @CustomLog
-public class Airfoil extends Node {
+public class Airfoil extends DataNode {
 
 	private static final String ID = "id";
 
